@@ -16,9 +16,24 @@
                 text-align: center;
                 padding: 1.5em;
             }
-            p {
+            article {
+                background-color: #fff;
+                margin: 1em auto;
                 padding: 1em;
-                font-size: 1.2em;
+                max-width: 600px;
+                border: 1px solid #d2b48c;
+                border-radius: 8px;
+            }
+            time {
+                font-size: 0.9em;
+                color: #6b8e23;
+            }
+            h2 a {
+                color: #3e3e2f;
+                text-decoration: none;
+            }
+            h2 a:hover {
+                color: #6b8e23;
             }
             footer {
                 background-color: #d2b48c; /* tan */
@@ -30,10 +45,17 @@
     </head>
     <body>
         <header>
-            <h1>🌿 Welcome to Ali's Blog 🌿</h1>
+            <h1><a href="/">🌿 Django Girls Blog 🌿</a></h1>
         </header>
-        <p>Hi there! Thanks for stopping by.</p>
-        <p>It works! Let’s keep it grounded and green.</p>
+
+        {% for post in posts %}
+            <article>
+                <time>published: {{ post.published_date }}</time>
+                <h2><a href="">{{ post.title }}</a></h2>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </article>
+        {% endfor %}
+
         <footer>
             Growing ideas, one post at a time 🌱
         </footer>
