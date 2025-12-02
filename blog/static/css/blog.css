@@ -1,0 +1,49 @@
+:root {
+    /* Earthy palette */
+    --color-background: #f4f1e1;   /* soft beige */
+    --color-primary: #6b8e23;      /* olive green */
+    --color-secondary: #d2b48c;    /* tan */
+    --color-text: #3e3e2f;         /* dark brown */
+    --color-accent: #8f9779;       /* sage green */
+    --color-highlight: #deb887;    /* burlywood */
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: var(--color-primary);
+    color: #fff;
+    text-align: center;
+    padding: 1.5em;
+}
+
+article {
+    background-color: #fff;
+    border: 1px solid var(--color-secondary);
+    border-radius: 8px;
+    margin: 1em auto;
+    padding: 1em;
+    max-width: 600px;
+}
+
+h2 a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+h2 a:hover {
+    color: var(--color-accent);
+}
+
+footer {
+    background-color: var(--color-secondary);
+    text-align: center;
+    padding: 1em;
+    font-style: italic;
+}

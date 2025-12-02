@@ -1,63 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Ali's Blog</title>
-        <style>
-            body {
-                background-color: #f4f1e1; /* soft earthy beige */
-                font-family: 'Georgia', serif;
-                color: #3e3e2f; /* dark earthy brown */
-                margin: 0;
-                padding: 0;
-            }
-            header {
-                background-color: #6b8e23; /* olive green */
-                color: #fff;
-                text-align: center;
-                padding: 1.5em;
-            }
-            article {
-                background-color: #fff;
-                margin: 1em auto;
-                padding: 1em;
-                max-width: 600px;
-                border: 1px solid #d2b48c;
-                border-radius: 8px;
-            }
-            time {
-                font-size: 0.9em;
-                color: #6b8e23;
-            }
-            h2 a {
-                color: #3e3e2f;
-                text-decoration: none;
-            }
-            h2 a:hover {
-                color: #6b8e23;
-            }
-            footer {
-                background-color: #d2b48c; /* tan */
-                text-align: center;
-                padding: 1em;
-                font-style: italic;
-            }
-        </style>
-    </head>
-    <body>
-        <header>
-            <h1><a href="/">🌿 Django Girls Blog 🌿</a></h1>
-        </header>
+{% extends 'blog/base.html' %}
 
-        {% for post in posts %}
-            <article>
-                <time>published: {{ post.published_date }}</time>
-                <h2><a href="">{{ post.title }}</a></h2>
-                <p>{{ post.text|linebreaksbr }}</p>
-            </article>
-        {% endfor %}
-
-        <footer>
-            Growing ideas, one post at a time 🌱
-        </footer>
-    </body>
-</html>
+{% block content %}
+    {% for post in posts %}
+        <article class="mb-4 p-3 border rounded">
+            <time class="text-muted">published: {{ post.published_date }}</time>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </article>
+    {% endfor %}
+{% endblock %}
