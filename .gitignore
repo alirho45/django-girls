@@ -30,3 +30,6 @@ $RECYCLE.BIN/
 .vscode/
 .history/
 *.code-workspac
+
+# Media files
+blog/static/blog/videos/*.mp4
