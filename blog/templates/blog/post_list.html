@@ -2,17 +2,17 @@
 {% load static %}
 
 {% block content %}
-    <!-- Homepage Header -->
+    # Header
     <h1 class="text-center mb-4">Welcome to My Blog</h1>
 
-    <!-- Homepage Image -->
+    # image
     <div style="text-align: center; margin-bottom: 30px;">
         <img src="{% static 'blog/images/pic.jpg' %}" 
              alt="Homepage image" 
              style="max-width: 100%; height: auto; border-radius: 8px;">
     </div>
 
-    <!-- Blog Posts Listing -->
+    # post listing
     {% for post in posts %}
         <article class="mb-4 p-3 border rounded bg-white">
             <time class="text-muted">published: {{ post.published_date }}</time>
@@ -22,5 +22,5 @@
             <p>{{ post.text|linebreaksbr }}</p>
         </article>
     {% endfor %}
-{% endblock %}
+{% endblock %}4
 
