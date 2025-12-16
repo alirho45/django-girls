@@ -10,17 +10,36 @@
     <body>
         <header class="page-header bg-success text-white py-3">
             <div class="container d-flex justify-content-between align-items-center">
-                <h1><a href="/" class="text-white text-decoration-none">🌿 Django Girls Blog 🌿</a></h1>
-                {% if user.is_authenticated %}
-                    <a href="{% url 'post_new' %}" class="top-menu">
-                        <!-- Inline SVG for "file-earmark-plus" -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                             class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
-                          <path d="M8 6a.5.5 0 0 1 .5.5V8h1.5a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V9H6a.5.5 0 0 1 0-1h1.5V6.5A.5.5 0 0 1 8 6z"/>
-                          <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5z"/>
-                        </svg>
+                <!-- Blog Title -->
+                <h1>
+                    <a href="/" class="text-white text-decoration-none">
+                        🌿 Django Girls Blog by Alisha 🌿
                     </a>
-                {% endif %}
+                </h1>
+
+                <!-- Authenticated / Guest Links -->
+                <div class="d-flex align-items-center gap-3">
+                    {% if user.is_authenticated %}
+                        <!-- New Post -->
+                        <a href="{% url 'post_new' %}" class="top-menu">
+                            {% include './icons/file-earmark-plus.svg' %}
+                        </a>
+                        <!-- Drafts -->
+                        <a href="{% url 'post_draft_list' %}" class="top-menu">
+                            {% include './icons/pencil-square.svg' %}
+                        </a>
+                        <!-- Logout -->
+                        <p id="logout" class="top-menu mb-0">
+                            Hello {{ user.username }}
+                            <small><a href="{% url 'logout' %}" class="text-white">(Log out)</a></small>
+                        </p>
+                    {% else %}
+                        <!-- Login -->
+                        <a href="{% url 'login' %}" class="top-menu">
+                            {% include './icons/lock-fill.svg' %}
+                        </a>
+                    {% endif %}
+                </div>
             </div>
         </header>
 
@@ -37,7 +56,5 @@
             Growing ideas, one post at a time 🌱
         </footer>
     </body>
-</html>
-
 </html>
 
